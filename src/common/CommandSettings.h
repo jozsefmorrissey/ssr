@@ -20,21 +20,21 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 #pragma once
 #include "Global.h"
 
-static class CommandSettings {
+class CommandSettings {
 
 private:
-	bool init;
-	QString output_file;
-	QString audio_profile_name;
-	QString video_profile_name;
-	QString termination_timer;
+	static bool init;
+	static QString output_file;
+	static QString audio_profile_name;
+	static QString video_profile_name;
+	static QString termination_timer;
 
 public:
-	void Initialize(QString _output_file, QString _audio_profile_name,
+	static void Initialize(QString _output_file, QString _audio_profile_name,
 		QString _video_profile_name, QString _termination_timer);
 
-	QString GetOutPutFile();
-	QString GetAudioProfileName();
-	QString GetVideoProfileName();
-	QString GetTerminationTimer();
+	static QString GetOutPutFile();
+	static QString GetAudioProfileName();
+	static QString GetVideoProfileName();
+	static QString GetTerminationTimer();
 };
