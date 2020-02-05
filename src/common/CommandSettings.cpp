@@ -19,28 +19,28 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "CommandSettings.h"
 
-bool CommandSettings::init = false;
-
 QString CommandSettings::output_file = NULL;
 QString CommandSettings::audio_profile_name = NULL;
 QString CommandSettings::video_profile_name = NULL;
 QString CommandSettings::termination_timer = NULL;
 
-
-void CommandSettings::Initialize(QString _output_file,
-			QString _audio_profile_name,
-			QString _video_profile_name,
-			QString _termination_timer) {
-	if (!init) {
-		init = true;
-		output_file = _output_file;
-		audio_profile_name = _audio_profile_name;
-		video_profile_name = _video_profile_name;
-		termination_timer = _termination_timer;
-	}
-}
-
 QString CommandSettings::GetOutPutFile() {return output_file;}
 QString CommandSettings::GetAudioProfileName() {return audio_profile_name;}
 QString CommandSettings::GetVideoProfileName() {return video_profile_name;}
 QString CommandSettings::GetTerminationTimer() {return termination_timer;}
+
+void CommandSettings::SetOutPutFile(QString _output_file) {
+	output_file = _output_file;
+}
+
+void CommandSettings::SetAudioProfileName(QString _audio_profile_name) {
+	audio_profile_name = _audio_profile_name;
+}
+
+void CommandSettings::SetVideoProfileName(QString _video_profile_name) {
+	video_profile_name = _video_profile_name;
+}
+
+void CommandSettings::SetTerminationTimer(QString _termination_timer) {
+	termination_timer = _termination_timer;
+}
