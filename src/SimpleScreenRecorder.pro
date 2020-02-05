@@ -40,6 +40,7 @@ SOURCES += \
 	AV/FastScaler_Scale_SSSE3.cpp \
 	AV/SimpleSynth.cpp \
 	AV/SourceSink.cpp \
+	common/CommandSettings.cpp \
 	common/CPUFeatures.cpp \
 	common/Dialogs.cpp \
 	common/Logger.cpp \
