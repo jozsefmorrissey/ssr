@@ -21,10 +21,10 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 
 CommandSettings::init = false;
 
-CommandSettings::Initialize(std::string _output_file,
-			std::string _audio_profile_name,
-			std::string _video_profile_name,
-			std::string _termination_timer) {
+CommandSettings::Initialize(QString _output_file,
+			QString _audio_profile_name,
+			QString _video_profile_name,
+			QString _termination_timer) {
 	if (!init) {
 		init = true;
 		output_file = _output_file;
@@ -35,7 +35,7 @@ CommandSettings::Initialize(std::string _output_file,
 	}
 }
 
-std::string CommandSettings::GetOutPutFile() {return output_file;}
-std::string CommandSettings::GetAudioProfileName() {return audio_profile_name;}
-std::string CommandSettings::GetVideoProfileName() {return video_profile_name;}
-std::string CommandSettings::GetTerminationTimer() {return termination_timer;}
+QString CommandSettings::GetOutPutFile() {return output_file;}
+QString CommandSettings::GetAudioProfileName() {return audio_profile_name;}
+QString CommandSettings::GetVideoProfileName() {return video_profile_name;}
+QString CommandSettings::GetTerminationTimer() {return termination_timer;}

@@ -32,7 +32,7 @@ QString g_option_statsfile = QString();
 bool g_option_syncdiagram = false;
 bool g_option_systray = true;
 bool g_option_start_hidden = false;
-std::string g_option_output_file = NULL;
+QString g_option_output_file = NULL;
 bool g_option_benchmark = false;
 
 void PrintOptionHelp() {
