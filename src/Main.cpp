@@ -171,7 +171,7 @@ int main(int argc, char* argv[]) {
 				if (CommandSettings::GetTerminationTimer() > 0) {
 					Logger::LogInfo("You have entered a termination timer");
 				} else {
-					Logger::LogInfo("You have not entered a termination timer";
+					Logger::LogInfo("You have not entered a termination timer");
 				}
 				Logger::LogInfo("ttv end");
 			} else if (option == "--record_on_start") {
