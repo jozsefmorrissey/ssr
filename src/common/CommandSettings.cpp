@@ -21,7 +21,7 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 
 bool CommandSettings::init = false;
 
-CommandSettings::Initialize(QString _output_file,
+void CommandSettings::Initialize(QString _output_file,
 			QString _audio_profile_name,
 			QString _video_profile_name,
 			QString _termination_timer) {
