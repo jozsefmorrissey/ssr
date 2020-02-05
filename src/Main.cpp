@@ -154,6 +154,8 @@ int main(int argc, char* argv[]) {
 			} else if(option == "--benchmark") {
 				NOVALUE
 				g_option_benchmark = true;
+			} else if (option == "--filepath") {
+				Logger::LogInfo("You have entered a file path");
 			} else {
 				Logger::LogError("[main] " + Logger::tr("Error: Unknown command-line option '%1'!").arg(option));
 				PrintOptionHelp();
