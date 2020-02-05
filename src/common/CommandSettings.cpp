@@ -31,7 +31,6 @@ void CommandSettings::Initialize(QString _output_file,
 		audio_profile_name = _audio_profile_name;
 		video_profile_name = _video_profile_name;
 		termination_timer = _termination_timer;
-		m_main_window = main_window;
 	}
 }
 
