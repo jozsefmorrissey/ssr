@@ -18,6 +18,7 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include "CommandSettings.h"
+#include "Logger.h"
 
 QString CommandSettings::output_file = NULL;
 QString CommandSettings::audio_profile_name = NULL;
