@@ -51,6 +51,6 @@ void CommandSettings::SetTerminationTimer(QString _termination_timer) {
 }
 
 void CommandSettings::SetRecordOnStart(bool _record_on_start) {
-	Logger::LogInfo("i ros value:" _record_on_start);
+	Logger::LogInfo("i ros value:" +  _record_on_start);
 	record_on_start = _record_on_start;
 }
