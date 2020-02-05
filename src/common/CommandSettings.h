@@ -23,7 +23,7 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 class CommandSettings {
 
 private:
-	static bool init false;
+	static bool init;
 	static QString output_file;
 	static QString audio_profile_name;
 	static QString video_profile_name;
