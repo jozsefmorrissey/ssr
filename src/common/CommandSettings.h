@@ -18,9 +18,8 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #pragma once
-#include "Global.h"
 
-class CommandSettings {
+static class CommandSettings {
 
 private:
 	static bool init;
@@ -30,7 +29,7 @@ private:
 	static QString termination_timer;
 
 public:
-	Initialize(QString _output_file, QString _audio_profile_name,
+	static Initialize(QString _output_file, QString _audio_profile_name,
 		QString _video_profile_name, QString _termination_timer);
 
 	static QString GetOutPutFile();
