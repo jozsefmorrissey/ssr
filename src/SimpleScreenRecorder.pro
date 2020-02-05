@@ -89,6 +89,7 @@ HEADERS  += \
 	AV/SampleCast.h \
 	AV/SimpleSynth.h \
 	AV/SourceSink.h \
+	common/CommandSettings.h \
 	common/CPUFeatures.h \
 	common/Dialogs.h \
 	common/EnumStrings.h \
@@ -118,4 +119,3 @@ HEADERS  += \
 
 RESOURCES += \
 	resources.qrc
-
