@@ -26,7 +26,8 @@ private:
 	static QString output_file;
 	static QString audio_profile_name;
 	static QString video_profile_name;
-	static QString termination_timer;
+	static int termination_timer;
+	static bool record_on_start;
 
 public:
 	static QString GetOutPutFile();
