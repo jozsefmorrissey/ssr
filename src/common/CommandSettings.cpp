@@ -46,11 +46,9 @@ void CommandSettings::SetVideoProfileName(QString _video_profile_name) {
 
 void CommandSettings::SetTerminationTimer(QString _termination_timer) {
 	// TODO: error check
-	Logger::LogInfo(new QString("i ttv value: " + _termination_timer.toStdString()));
-	termination_timer = std::stoi(_termination_timer.toStdString());
+	termination_timer = _termination_timer.toInt();
 }
 
 void CommandSettings::SetRecordOnStart(bool _record_on_start) {
-	Logger::LogInfo("i ros value:" +  _record_on_start);
 	record_on_start = _record_on_start;
 }
