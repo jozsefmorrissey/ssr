@@ -169,7 +169,7 @@ int main(int argc, char* argv[]) {
 				CommandSettings::SetTerminationTimer(value);
 				Logger::LogInfo("ttv value: " + value);
 				if (CommandSettings::GetTerminationTimer() > 0) {
-					Logger::LogInfo("You have entered a termination timer";
+					Logger::LogInfo("You have entered a termination timer");
 				} else {
 					Logger::LogInfo("You have not entered a termination timer";
 				}
