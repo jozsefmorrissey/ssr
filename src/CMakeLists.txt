@@ -74,6 +74,7 @@ set(sources
 	AV/SimpleSynth.h
 	AV/SourceSink.cpp
 	AV/SourceSink.h
+	common/CommandSettings.h
 	common/CPUFeatures.cpp
 	common/CPUFeatures.h
 	common/Dialogs.cpp
