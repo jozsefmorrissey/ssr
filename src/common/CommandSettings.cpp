@@ -19,6 +19,8 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "CommandSettings.h"
 
+CommandSettings::init = false;
+
 CommandSettings::Initialize(QString _output_file,
 			QString _audio_profile_name,
 			QString _video_profile_name,
