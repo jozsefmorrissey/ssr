@@ -48,7 +48,6 @@ void CommandSettings::SetTerminationTimer(QString _termination_timer) {
 	termination_timer = std::stoi(_termination_timer.toStdString());
 }
 
-void CommandSettings::SetRecordOnStart(QString _record_on_start) {
-	record_on_start = _record_on_start.toStdString() == "true" ||
-			_record_on_start.toStdString() == "TRUE";
+void CommandSettings::SetRecordOnStart(bool _record_on_start) {
+	record_on_start = _record_on_start;
 }

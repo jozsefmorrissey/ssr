@@ -40,6 +40,6 @@ public:
 	static void SetAudioProfileName(QString _audio_profile_name);
 	static void SetVideoProfileName(QString _video_profile_name);
 	static void SetTerminationTimer(QString _termination_timer);
-	static void SetRecordOnStart(QString _record_on_start);
+	static void SetRecordOnStart(bool _record_on_start);
 
 };

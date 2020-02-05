@@ -158,7 +158,7 @@ int main(int argc, char* argv[]) {
 				g_option_benchmark = true;
 			} else if (option == "--output_file") {
 				CommandSettings::SetOutputFile(value);
-				Logger::LogInfo("You have entered a file path " + CommandSettings::GetOutPutFile());
+				Logger::LogInfo("You have entered a file path " + CommandSettings::GetOutputFile());
 			} else if (option == "--audio_profile_name") {
 				CommandSettings::SetAudioProfileName(value);
 				Logger::LogInfo("You have entered an audio profile name: " + CommandSettings::GetAudioProfileName());
