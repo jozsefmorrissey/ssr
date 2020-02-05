@@ -30,7 +30,7 @@ private:
 	static bool record_on_start;
 
 public:
-	static QString GetOutPutFile();
+	static QString GetOutputFile();
 	static QString GetAudioProfileName();
 	static QString GetVideoProfileName();
 	static int GetTerminationTimer();
