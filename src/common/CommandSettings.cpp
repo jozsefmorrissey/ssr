@@ -22,8 +22,8 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 QString CommandSettings::output_file = NULL;
 QString CommandSettings::audio_profile_name = NULL;
 QString CommandSettings::video_profile_name = NULL;
-int CommandSettings::termination_timer = NULL;
-bool CommandSettings::record_on_start = NULL;
+int CommandSettings::termination_timer = 0;
+bool CommandSettings::record_on_start = false;
 
 QString CommandSettings::GetOutPutFile() {return output_file;}
 QString CommandSettings::GetAudioProfileName() {return audio_profile_name;}
