@@ -21,6 +21,12 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 
 bool CommandSettings::init = false;
 
+QString CommandSettings::output_file = NULL;
+QString CommandSettings::audio_profile_name = NULL;
+QString CommandSettings::video_profile_name = NULL;
+QString CommandSettings::termination_timer = NULL;
+
+
 void CommandSettings::Initialize(QString _output_file,
 			QString _audio_profile_name,
 			QString _video_profile_name,
