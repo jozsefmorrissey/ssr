@@ -45,10 +45,10 @@ void CommandSettings::SetVideoProfileName(QString _video_profile_name) {
 
 void CommandSettings::SetTerminationTimer(QString _termination_timer) {
 	// TODO: error check
-	termination_timer = std::stoi(_termination_timer.toString());
+	termination_timer = std::stoi(_termination_timer.toStdString());
 }
 
 void CommandSettings::SetRecordOnStart(QString _record_on_start) {
-	record_on_start = _record_on_start.toString() == "true" ||
+	record_on_start = _record_on_start.toStdString() == "true" ||
 			_record_on_start.toString() == "TRUE";
 }
