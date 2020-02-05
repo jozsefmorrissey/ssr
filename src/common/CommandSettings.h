@@ -18,23 +18,25 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #pragma once
+#include <sys/types.h>
+
 #include "Global.h"
 
 static class CommandSettings {
 
 private:
 	bool init;
-	QString output_file;
-	QString audio_profile_name;
-	QString video_profile_name;
-	QString termination_timer;
+	std::string output_file;
+	std::string audio_profile_name;
+	std::string video_profile_name;
+	std::string termination_timer;
 
 public:
-	void Initialize(QString _output_file, QString _audio_profile_name,
-		QString _video_profile_name, QString _termination_timer);
+	void Initialize(std::string _output_file, std::string _audio_profile_name,
+		std::string _video_profile_name, std::string _termination_timer);
 
-	QString GetOutPutFile();
-	QString GetAudioProfileName();
-	QString GetVideoProfileName();
-	QString GetTerminationTimer();
+	std::string GetOutPutFile();
+	std::string GetAudioProfileName();
+	std::string GetVideoProfileName();
+	std::string GetTerminationTimer();
 };
