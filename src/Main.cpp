@@ -167,8 +167,10 @@ int main(int argc, char* argv[]) {
 				Logger::LogInfo("You have entered a video profile name: " + CommandSettings::GetVideoProfileName());
 			} else if (option == "--termination_timer") {
 				CommandSettings::SetTerminationTimer(value);
+				Logger::LogInfo("ttv value: " + value);
 				Logger::LogInfo("You have entered a termination timer: " + CommandSettings::GetTerminationTimer());
 			} else if (option == "--record_on_start") {
+				Logger::LogInfo("ros value: " + value);
 				CommandSettings::SetRecordOnStart(true);
 				Logger::LogInfo("You have indicated to record on start: " + CommandSettings::ShouldRecordOnStart());
 			} else {
