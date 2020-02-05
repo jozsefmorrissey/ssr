@@ -169,10 +169,12 @@ int main(int argc, char* argv[]) {
 				CommandSettings::SetTerminationTimer(value);
 				Logger::LogInfo("ttv value: " + value);
 				Logger::LogInfo("You have entered a termination timer: " + CommandSettings::GetTerminationTimer());
+				Logger::LogInfo("ttv end");
 			} else if (option == "--record_on_start") {
 				Logger::LogInfo("ros value: " + value);
 				CommandSettings::SetRecordOnStart(true);
 				Logger::LogInfo("You have indicated to record on start: " + CommandSettings::ShouldRecordOnStart());
+				Logger::LogInfo("ros end");
 			} else {
 				Logger::LogError("[main] " + Logger::tr("Error: Unknown command-line option '%1'!").arg(option));
 				PrintOptionHelp();
