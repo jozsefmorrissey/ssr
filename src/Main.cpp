@@ -22,6 +22,7 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 #include "Benchmark.h"
 #include "CPUFeatures.h"
 #include "HotkeyListener.h"
+#include "CommandSettings.h"
 #include "Icons.h"
 #include "Logger.h"
 #include "MainWindow.h"
@@ -31,6 +32,7 @@ QString g_option_statsfile = QString();
 bool g_option_syncdiagram = false;
 bool g_option_systray = true;
 bool g_option_start_hidden = false;
+QString g_option_output_file = NULL;
 bool g_option_benchmark = false;
 
 void PrintOptionHelp() {
@@ -155,12 +157,16 @@ int main(int argc, char* argv[]) {
 				NOVALUE
 				g_option_benchmark = true;
 			} else if (option == "--filepath") {
-				Logger::LogInfo("You have entered a file path");
+				Logger::LogInfo("You have entered a file path " + value);
+				g_option_output_file = value;
+				CommandSettings::Initialize(value, NULL, NULL, NULL);
 			} else {
 				Logger::LogError("[main] " + Logger::tr("Error: Unknown command-line option '%1'!").arg(option));
 				PrintOptionHelp();
 				return 1;
 			}
+
+
 
 #undef NOVALUE
 
