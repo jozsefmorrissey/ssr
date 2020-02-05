@@ -32,10 +32,13 @@ public:
 	static QString GetOutPutFile();
 	static QString GetAudioProfileName();
 	static QString GetVideoProfileName();
-	static QString GetTerminationTimer();
+	static int GetTerminationTimer();
+	static bool ShouldRecordOnStart();
 
 	static void SetOutPutFile(QString _output_file);
 	static void SetAudioProfileName(QString _audio_profile_name);
 	static void SetVideoProfileName(QString _video_profile_name);
 	static void SetTerminationTimer(QString _termination_timer);
+	static void SetRecordOnStart(QString _record_on_start);
+
 };

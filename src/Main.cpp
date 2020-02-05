@@ -156,10 +156,21 @@ int main(int argc, char* argv[]) {
 			} else if(option == "--benchmark") {
 				NOVALUE
 				g_option_benchmark = true;
-			} else if (option == "--filepath") {
-				Logger::LogInfo("You have entered a file path " + value);
-				g_option_output_file = value;
-				CommandSettings::Initialize(value, NULL, NULL, NULL);
+			} else if (option == "--output_file") {
+				CommandSettings::SetOutputFile(value);
+				Logger::LogInfo("You have entered a file path " + CommandSettings::GetOutPutFile());
+			} else if (option == "--audio_profile_name") {
+				CommandSettings::SetAudioProfileName(value);
+				Logger::LogInfo("You have entered an audio profile name: " + CommandSettings::GetAudioProfileName());
+			} else if (option == "--video_profile_name") {
+				CommandSettings::SetVideoProfileName(value);
+				Logger::LogInfo("You have entered a video profile name: " + CommandSettings::GetVideoProfileName());
+			} else if (option == "--termination_timer") {
+				CommandSettings::SetTerminationTimer(value);
+				Logger::LogInfo("You have entered a termination timer: " + CommandSettings::GetTerminationTimer());
+			} else if (option == "--record_on_start") {
+				CommandSettings::SetRecordOnStart(true);
+				Logger::LogInfo("You have indicated to record on start: " + CommandSettings::ShouldRecordOnStart());
 			} else {
 				Logger::LogError("[main] " + Logger::tr("Error: Unknown command-line option '%1'!").arg(option));
 				PrintOptionHelp();

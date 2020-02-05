@@ -22,14 +22,16 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 QString CommandSettings::output_file = NULL;
 QString CommandSettings::audio_profile_name = NULL;
 QString CommandSettings::video_profile_name = NULL;
-QString CommandSettings::termination_timer = NULL;
+int CommandSettings::termination_timer = NULL;
+bool CommandSettings::record_on_start = NULL;
 
 QString CommandSettings::GetOutPutFile() {return output_file;}
 QString CommandSettings::GetAudioProfileName() {return audio_profile_name;}
 QString CommandSettings::GetVideoProfileName() {return video_profile_name;}
-QString CommandSettings::GetTerminationTimer() {return termination_timer;}
+int CommandSettings::GetTerminationTimer() {return termination_timer;}
+bool CommandSettings::ShouldRecordOnStart() {return record_on_start;}
 
-void CommandSettings::SetOutPutFile(QString _output_file) {
+void CommandSettings::SetOutputFile(QString _output_file) {
 	output_file = _output_file;
 }
 
@@ -42,5 +44,11 @@ void CommandSettings::SetVideoProfileName(QString _video_profile_name) {
 }
 
 void CommandSettings::SetTerminationTimer(QString _termination_timer) {
-	termination_timer = _termination_timer;
+	// TODO: error check
+	termination_timer = std::stoi(_termination_timer.toString());
+}
+
+void CommandSettings::SetRecordOnStart(QString _record_on_start) {
+	record_on_start = _record_on_start.toString() == "true" ||
+			_record_on_start.toString() == "TRUE";
 }
