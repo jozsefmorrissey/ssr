@@ -21,8 +21,8 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 #include "Logger.h"
 
 QString CommandSettings::output_file = NULL;
-QString CommandSettings::audio_profile_name = NULL;
-QString CommandSettings::video_profile_name = NULL;
+QString CommandSettings::input_profile_name = NULL;
+QString CommandSettings::output_profile_name = NULL;
 int CommandSettings::termination_timer = 0;
 bool CommandSettings::record_on_start = false;
 
