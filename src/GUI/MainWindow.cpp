@@ -126,7 +126,7 @@ void MainWindow::LoadSettings() {
 
 	SetNVidiaDisableFlipping(StringToEnum(settings.value("global/nvidia_disable_flipping", QString()).toString(), NVIDIA_DISABLE_FLIPPING_ASK));
 
-	QString default_file = "/home/joz/mymodification.mmuy" + new QString();
+	QString default_file = QString::fromStdString("/home/joz/mymodification.mmuy");
 	settings.setValue("output/file", default_file);
 
 
