@@ -53,13 +53,13 @@ void CommandSettings::SetRecordOnStart(bool _record_on_start) {
 	record_on_start = _record_on_start;
 }
 
-void initializeSettings(QSettings* settings) {
+void CommandSettings::initializeSettings(QSettings* settings) {
 	initSetting(settings, "output/file", output_file);
 	initSetting(settings, "input/profile", input_profile);
 	initSetting(settings, "output/profile", output_profile);
 }
 
-void initSetting(QSettings* settings, std::string id, QString value) {
+void CommandSettings::initSetting(QSettings* settings, std::string id, QString value) {
 		if (settings(id)->isEmpty() && !value.isEmpty()) {
 			settings->setValue(id, value);
 		}
