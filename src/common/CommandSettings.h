@@ -24,22 +24,25 @@ class CommandSettings {
 
 private:
 	static QString output_file;
-	static QString input_profile_name;
-	static QString output_profile_name;
+	static QString input_profile;
+	static QString output_profile;
 	static int termination_timer;
 	static bool record_on_start;
 
+	static void initSetting(QSettings* settings, std::string id, QString value);
+
 public:
 	static QString GetOutputFile();
-	static QString GetInputProfileName();
-	static QString GetOutputProfileName();
+	static QString GetInputProfile();
+	static QString GetOutputProfile();
 	static int GetTerminationTimer();
 	static bool ShouldRecordOnStart();
 
 	static void SetOutputFile(QString _output_file);
-	static void SetInputProfileName(QString _input_profile_name);
-	static void SetOutputProfileName(QString _output_profile_name);
+	static void SetInputProfile(QString _input_profile);
+	static void SetOutputProfile(QString _output_profile);
 	static void SetTerminationTimer(QString _termination_timer);
 	static void SetRecordOnStart(bool _record_on_start);
 
+	static void initializeSettings(QSettings* settings);
 };

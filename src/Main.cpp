@@ -40,21 +40,21 @@ void PrintOptionHelp() {
 				"Usage: simplescreenrecorder [OPTIONS]\n"
 				"\n"
 				"Options:\n"
-				"  --audio_profile_name[=NAME]  Use this audio profile.\n"
-				"  --help                       Show this help message.\n"
-				"  --logfile                    Write log to ~/.ssr/log-DATE_TIME.txt instead of stdout.\n"
-				"  --no-systray                 Don't show the system tray icon.\n"
-				"  --output_file                Save to this file.\n"
-				"  --record_on_start            Start recording as soon as application starts.\n"
-				"  --statsfile[=FILE]           Write recording statistics to FILE. If FILE is omitted,\n"
-				"                               /dev/shm/simplescreenrecorder-stats-PID is used. It will\n"
-				"                               be updated continuously and deleted when the recording\n"
-				"                               page is closed.\n"
-				"  --syncdiagram                Show synchronization diagram (for debugging).\n"
-				"  --termination_timer[=SEC]    Stop recording in indicated seconds.\n"
-				"  --start-hidden               Start the application in hidden form.\n"
-				"  --version                    Show version information.\n"
-				"  --video_profile_name[=NAME]  Use this video profile.\n"
+				"  --audio_profile[=NAME]     Use this audio profile.\n"
+				"  --help                     Show this help message.\n"
+				"  --logfile                  Write log to ~/.ssr/log-DATE_TIME.txt instead of stdout.\n"
+				"  --no-systray               Don't show the system tray icon.\n"
+				"  --output_file              Save to this file.\n"
+				"  --record_on_start          Start recording as soon as application starts.\n"
+				"  --statsfile[=FILE]         Write recording statistics to FILE. If FILE is omitted,\n"
+				"                             /dev/shm/simplescreenrecorder-stats-PID is used. It will\n"
+				"                             be updated continuously and deleted when the recording\n"
+				"                             page is closed.\n"
+				"  --syncdiagram              Show synchronization diagram (for debugging).\n"
+				"  --termination_timer[=SEC]  Stop recording in indicated seconds.\n"
+				"  --start-hidden             Start the application in hidden form.\n"
+				"  --version                  Show version information.\n"
+				"  --video_profile[=NAME]     Use this video profile.\n"
 	);
 }
 
@@ -163,10 +163,10 @@ int main(int argc, char* argv[]) {
 				g_option_benchmark = true;
 			} else if (option == "--output_file") {
 				CommandSettings::SetOutputFile(value);
-			} else if (option == "--input_profile_name") {
-				CommandSettings::SetInputProfileName(value);
-			} else if (option == "--output_profile_name") {
-				CommandSettings::SetOutputProfileName(value);
+			} else if (option == "--input_profile") {
+				CommandSettings::SetInputProfile(value);
+			} else if (option == "--output_profile") {
+				CommandSettings::SetOutputProfile(value);
 			} else if (option == "--termination_timer") {
 				CommandSettings::SetTerminationTimer(value);
 			} else if (option == "--record_on_start") {

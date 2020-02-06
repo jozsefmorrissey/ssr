@@ -21,14 +21,14 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 #include "Logger.h"
 
 QString CommandSettings::output_file = NULL;
-QString CommandSettings::input_profile_name = NULL;
-QString CommandSettings::output_profile_name = NULL;
+QString CommandSettings::input_profile = NULL;
+QString CommandSettings::output_profile = NULL;
 int CommandSettings::termination_timer = 0;
 bool CommandSettings::record_on_start = false;
 
 QString CommandSettings::GetOutputFile() {return output_file;}
-QString CommandSettings::GetInputProfileName() {return input_profile_name;}
-QString CommandSettings::GetOutputProfileName() {return output_profile_name;}
+QString CommandSettings::GetInputProfile() {return input_profile;}
+QString CommandSettings::GetOutputProfile() {return output_profile;}
 int CommandSettings::GetTerminationTimer() {return termination_timer;}
 bool CommandSettings::ShouldRecordOnStart() {return record_on_start;}
 
@@ -36,12 +36,12 @@ void CommandSettings::SetOutputFile(QString _output_file) {
 	output_file = _output_file;
 }
 
-void CommandSettings::SetInputProfileName(QString _input_profile_name) {
-	input_profile_name = _input_profile_name;
+void CommandSettings::SetInputProfile(QString _input_profile) {
+	input_profile = _input_profile;
 }
 
-void CommandSettings::SetOutputProfileName(QString _output_profile_name) {
-	output_profile_name = _output_profile_name;
+void CommandSettings::SetOutputProfile(QString _output_profile) {
+	output_profile = _output_profile;
 }
 
 void CommandSettings::SetTerminationTimer(QString _termination_timer) {
@@ -51,4 +51,16 @@ void CommandSettings::SetTerminationTimer(QString _termination_timer) {
 
 void CommandSettings::SetRecordOnStart(bool _record_on_start) {
 	record_on_start = _record_on_start;
+}
+
+void initializeSettings(QSettings* settings) {
+	initSetting(settings, "output/file", output_file);
+	initSetting(settings, "input/profile", input_profile);
+	initSetting(settings, "output/profile", output_profile);
+}
+
+void initSetting(QSettings* settings, std::string id, QString value) {
+		if (settings(id)->isEmpty() && !value.isEmpty()) {
+			settings->setValue(id, value);
+		}
 }
