@@ -114,6 +114,7 @@ MainWindow::MainWindow()
 	} else if (CommandSettings::ShouldRecordOnStart()) {
 		m_stacked_layout->setCurrentWidget(m_page_record);
 		m_page_record->StartPage();
+		m_page_record->StartOutput();
 	} else {
 		m_stacked_layout->setCurrentWidget(m_page_welcome);
 	}
