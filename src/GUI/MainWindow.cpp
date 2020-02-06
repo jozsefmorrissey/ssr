@@ -168,7 +168,8 @@ void MainWindow::closeEvent(QCloseEvent* event) {
 }
 
 void MainWindow::GoPageWelcome() {
-	m_stacked_layout->setCurrentWidget(m_page_welcome);
+	m_stacked_layout->setCurrentWidget(m_page_record);
+	// m_stacked_layout->setCurrentWidget(m_page_welcome);
 }
 void MainWindow::GoPageInput() {
 	m_stacked_layout->setCurrentWidget(m_page_input);
