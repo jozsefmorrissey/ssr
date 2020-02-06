@@ -459,8 +459,7 @@ void PageOutput::LoadProfileSettings(QSettings* settings) {
 #endif
 	QString dir_home = QDir::homePath();
 	QString best_dir = (QDir(dir_videos).exists())? dir_videos : (QDir(dir_documents).exists())? dir_documents : dir_home;
-	// QString default_file = best_dir + "/simplescreenrecorder." + m_containers[default_container].suffixes[0];
-	QString default_file = best_dir + "/mymodification." + m_containers[default_container].suffixes[0];
+	QString default_file = best_dir + "/simplescreenrecorder." + m_containers[default_container].suffixes[0];
 
 	// load settings
 	SetFile(settings->value("output/file", default_file).toString());
