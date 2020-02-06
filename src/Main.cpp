@@ -163,10 +163,10 @@ int main(int argc, char* argv[]) {
 				g_option_benchmark = true;
 			} else if (option == "--output_file") {
 				CommandSettings::SetOutputFile(value);
-			} else if (option == "--audio_profile_name") {
-				CommandSettings::SetAudioProfileName(value);
-			} else if (option == "--video_profile_name") {
-				CommandSettings::SetVideoProfileName(value);
+			} else if (option == "--input_profile_name") {
+				CommandSettings::SetInputProfileName(value);
+			} else if (option == "--output_profile_name") {
+				CommandSettings::SetOutputProfileName(value);
 			} else if (option == "--termination_timer") {
 				CommandSettings::SetTerminationTimer(value);
 			} else if (option == "--record_on_start") {

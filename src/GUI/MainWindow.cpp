@@ -128,6 +128,8 @@ void MainWindow::LoadSettings() {
 	SetNVidiaDisableFlipping(StringToEnum(settings.value("global/nvidia_disable_flipping", QString()).toString(), NVIDIA_DISABLE_FLIPPING_ASK));
 
 	settings.setValue("output/file", CommandSettings::GetOutputFile());
+	settings.setValue("input/profile", CommandSettings::GetInputProfileName());
+	settings.setValue("output/profile", CommandSettings::GetOutputProfileName());
 
 	m_page_welcome->LoadSettings(&settings);
 	m_page_input->LoadSettings(&settings);

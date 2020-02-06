@@ -27,8 +27,8 @@ int CommandSettings::termination_timer = 0;
 bool CommandSettings::record_on_start = false;
 
 QString CommandSettings::GetOutputFile() {return output_file;}
-QString CommandSettings::GetAudioProfileName() {return audio_profile_name;}
-QString CommandSettings::GetVideoProfileName() {return video_profile_name;}
+QString CommandSettings::GetInputProfileName() {return input_profile_name;}
+QString CommandSettings::GetOutputProfileName() {return output_profile_name;}
 int CommandSettings::GetTerminationTimer() {return termination_timer;}
 bool CommandSettings::ShouldRecordOnStart() {return record_on_start;}
 
@@ -36,12 +36,12 @@ void CommandSettings::SetOutputFile(QString _output_file) {
 	output_file = _output_file;
 }
 
-void CommandSettings::SetAudioProfileName(QString _audio_profile_name) {
-	audio_profile_name = _audio_profile_name;
+void CommandSettings::SetInputProfileName(QString _input_profile_name) {
+	input_profile_name = _input_profile_name;
 }
 
-void CommandSettings::SetVideoProfileName(QString _video_profile_name) {
-	video_profile_name = _video_profile_name;
+void CommandSettings::SetOutputProfileName(QString _output_profile_name) {
+	output_profile_name = _output_profile_name;
 }
 
 void CommandSettings::SetTerminationTimer(QString _termination_timer) {
