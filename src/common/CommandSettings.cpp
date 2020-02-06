@@ -59,8 +59,8 @@ void CommandSettings::initializeSettings(QSettings* settings) {
 	initSetting(settings, "output/profile", output_profile);
 }
 
-void CommandSettings::initSetting(QSettings* settings, QString id, QVariant value) {
-		if (settings.value(id)->isEmpty() && !value.isEmpty()) {
+void CommandSettings::initSetting(QSettings* settings, QString id, QString value) {
+		if (settings->value(id).isEmpty() && !value.isEmpty()) {
 			settings->setValue(id, value);
 		}
 }
