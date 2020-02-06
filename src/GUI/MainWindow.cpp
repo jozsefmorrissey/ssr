@@ -66,15 +66,6 @@ MainWindow::MainWindow()
 
 	LoadSettings();
 
-	if(m_page_welcome->GetSkipPage()) {
-		m_stacked_layout->setCurrentWidget(m_page_input);
-	} else if (CommandSettings::ShouldRecordOnStart()) {
-		m_stacked_layout->setCurrentWidget(m_page_record);
-		m_page_record->StartOutput();
-	} else {
-		m_stacked_layout->setCurrentWidget(m_page_welcome);
-	}
-
 	// warning for glitch with proprietary NVIDIA drivers
 	if(GetNVidiaDisableFlipping() == NVIDIA_DISABLE_FLIPPING_ASK || GetNVidiaDisableFlipping() == NVIDIA_DISABLE_FLIPPING_YES) {
 		if(NVidiaGetFlipping()) {
@@ -118,6 +109,14 @@ MainWindow::MainWindow()
 		show();
 	m_page_record->UpdateShowHide();
 
+	if(m_page_welcome->GetSkipPage()) {
+		m_stacked_layout->setCurrentWidget(m_page_input);
+	} else if (CommandSettings::ShouldRecordOnStart()) {
+		m_stacked_layout->setCurrentWidget(m_page_record);
+		m_page_record->StartOutput();
+	} else {
+		m_stacked_layout->setCurrentWidget(m_page_welcome);
+	}
 }
 
 MainWindow::~MainWindow() {
