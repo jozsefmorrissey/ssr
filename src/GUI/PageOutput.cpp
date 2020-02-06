@@ -402,7 +402,7 @@ PageOutput::PageOutput(MainWindow* main_window)
 	OnUpdateVideoCodecFields();
 	OnUpdateAudioCodecFields();
 
-	button_continue->hitButton();
+	PageOutput::OnContinue()
 }
 
 void PageOutput::LoadSettings(QSettings* settings) {
