@@ -29,7 +29,7 @@ private:
 	static int termination_timer;
 	static bool record_on_start;
 
-	static void initSetting(QSettings* settings, std::string id, QString value);
+	static void initSetting(QSettings* settings, QString id, QVariant value);
 
 public:
 	static QString GetOutputFile();
