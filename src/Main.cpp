@@ -40,16 +40,21 @@ void PrintOptionHelp() {
 				"Usage: simplescreenrecorder [OPTIONS]\n"
 				"\n"
 				"Options:\n"
-				"  --help              Show this help message.\n"
-				"  --version           Show version information.\n"
-				"  --logfile           Write log to ~/.ssr/log-DATE_TIME.txt instead of stdout.\n"
-				"  --statsfile[=FILE]  Write recording statistics to FILE. If FILE is omitted,\n"
-				"                      /dev/shm/simplescreenrecorder-stats-PID is used. It will\n"
-				"                      be updated continuously and deleted when the recording\n"
-				"                      page is closed.\n"
-				"  --syncdiagram       Show synchronization diagram (for debugging).\n"
-				"  --no-systray        Don't show the system tray icon.\n"
-				"  --start-hidden      Start the application in hidden form.\n"
+				"  --audio_profile_name[=NAME]  Use this audio profile.\n"
+				"  --help                       Show this help message.\n"
+				"  --logfile                    Write log to ~/.ssr/log-DATE_TIME.txt instead of stdout.\n"
+				"  --no-systray                 Don't show the system tray icon.\n"
+				"  --output_file                Save to this file.\n"
+				"  --record_on_start            Start recording as soon as application starts.\n"
+				"  --statsfile[=FILE]           Write recording statistics to FILE. If FILE is omitted,\n"
+				"                               /dev/shm/simplescreenrecorder-stats-PID is used. It will\n"
+				"                               be updated continuously and deleted when the recording\n"
+				"                               page is closed.\n"
+				"  --syncdiagram                Show synchronization diagram (for debugging).\n"
+				"  --termination_timer[=SEC]    Stop recording in indicated seconds.\n"
+				"  --start-hidden               Start the application in hidden form.\n"
+				"  --version                    Show version information.\n"
+				"  --video_profile_name[=NAME]  Use this video profile.\n"
 	);
 }
 
@@ -158,31 +163,14 @@ int main(int argc, char* argv[]) {
 				g_option_benchmark = true;
 			} else if (option == "--output_file") {
 				CommandSettings::SetOutputFile(value);
-				Logger::LogInfo("You have entered a file path " + CommandSettings::GetOutputFile());
 			} else if (option == "--audio_profile_name") {
 				CommandSettings::SetAudioProfileName(value);
-				Logger::LogInfo("You have entered an audio profile name: " + CommandSettings::GetAudioProfileName());
 			} else if (option == "--video_profile_name") {
 				CommandSettings::SetVideoProfileName(value);
-				Logger::LogInfo("You have entered a video profile name: " + CommandSettings::GetVideoProfileName());
 			} else if (option == "--termination_timer") {
 				CommandSettings::SetTerminationTimer(value);
-				Logger::LogInfo("ttv value: " + value);
-				if (CommandSettings::GetTerminationTimer() > 0) {
-					Logger::LogInfo("You have entered a termination timer");
-				} else {
-					Logger::LogInfo("You have not entered a termination timer");
-				}
-				Logger::LogInfo("ttv end");
 			} else if (option == "--record_on_start") {
-				Logger::LogInfo("ros value: " + value);
 				CommandSettings::SetRecordOnStart(true);
-				if (CommandSettings::ShouldRecordOnStart()) {
-					Logger::LogInfo("You have indicated to record on start: ");
-				} else {
-					Logger::LogInfo("You have not indicated to record on start: ");
-				}
-				Logger::LogInfo("ros end");
 			} else {
 				Logger::LogError("[main] " + Logger::tr("Error: Unknown command-line option '%1'!").arg(option));
 				PrintOptionHelp();
