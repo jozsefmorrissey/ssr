@@ -70,7 +70,7 @@ MainWindow::MainWindow()
 		m_stacked_layout->setCurrentWidget(m_page_input);
 	} else if (CommandSettings::ShouldRecordOnStart()) {
 		m_stacked_layout->setCurrentWidget(m_page_record);
-		m_page_record->UpdateRecordPauseButton();
+		m_page_record->StartOutput();
 	} else {
 		m_stacked_layout->setCurrentWidget(m_page_welcome);
 	}
