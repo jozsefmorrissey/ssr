@@ -20,6 +20,7 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 #include "MainWindow.h"
 
 #include "Main.h"
+#include "CommandSettings.h"
 #include "Icons.h"
 #include "Dialogs.h"
 #include "EnumStrings.h"
@@ -126,9 +127,7 @@ void MainWindow::LoadSettings() {
 
 	SetNVidiaDisableFlipping(StringToEnum(settings.value("global/nvidia_disable_flipping", QString()).toString(), NVIDIA_DISABLE_FLIPPING_ASK));
 
-	QString default_file = QString::fromStdString("/home/joz/mymodification.mmuy");
-	settings.setValue("output/file", default_file);
-
+	settings.setValue("output/file", CommandSettings::GetOutputFile());
 
 	m_page_welcome->LoadSettings(&settings);
 	m_page_input->LoadSettings(&settings);
