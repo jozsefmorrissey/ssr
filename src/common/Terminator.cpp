@@ -3,8 +3,7 @@
 
 #include <Terminator.h>
 
-Terminator::Terminator(QCoreApplication* _a, int _seconds) {
-    a = _a;
+Terminator::Terminator(int _seconds) {
     std::cout << "constructor\n";
     terminate();
 }
@@ -24,12 +23,12 @@ void Terminator::threadFunc() {
     std::cout << "threadFunc\n";
     QTimer *timer = new QTimer(this);
     timer->singleShot(3000, this, SLOT(timerFunc()));
-    timer->start(1000);
+    timer->start(seconds * 1000);
 }
 
 void Terminator::timerFunc() {
     std::cout << "timerFunc\n";
-    a->quit();
+    QCoreApplication::exit(0);
 }
 
 #endif // TERMINATOR
