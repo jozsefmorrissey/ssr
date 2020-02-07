@@ -44,6 +44,7 @@ SOURCES += \
 	common/CPUFeatures.cpp \
 	common/Dialogs.cpp \
 	common/Logger.cpp \
+	common/Terminator.cpp \
 	GUI/AudioPreviewer.cpp \
 	GUI/DialogGLInject.cpp \
 	GUI/ElidedLabel.cpp \
@@ -99,6 +100,7 @@ HEADERS  += \
 	common/MutexDataPair.h \
 	common/QueueBuffer.h \
 	common/TempBuffer.h \
+	common/Terminator.h \
 	GUI/AudioPreviewer.h \
 	GUI/DialogGLInject.h \
 	GUI/ElidedLabel.h \

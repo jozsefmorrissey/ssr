@@ -14,14 +14,11 @@ void Terminator::terminate() {
     if (counter == 0) {
         std::cout << "terminate";
         QThread t;
-        std::cout << "obj name: " << typeid(this).name() << "\n";
         this->connect(&t, SIGNAL(finished()), this, SLOT(threadFunc()));
         t.start();
 
     }
 }
-
-
 
 void Terminator::threadFunc() {
     std::cout << "threadFunc\n";

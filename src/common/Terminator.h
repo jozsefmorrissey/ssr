@@ -2,7 +2,6 @@
 #include <QTimer>
 #include <QCoreApplication>
 #include <iostream>
-#include <typeinfo>
 #include <QThread>
 
 class Terminator : public QObject {
