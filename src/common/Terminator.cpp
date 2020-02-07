@@ -1,7 +1,7 @@
 #ifndef TERMINATOR
 #define TERMINATOR
 
-#include <terminator.h>
+#include <Terminator.h>
 
 Terminator::Terminator(QCoreApplication* _a, int _seconds) {
     a = _a;
