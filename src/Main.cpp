@@ -24,7 +24,7 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 #include "HotkeyListener.h"
 #include "CommandSettings.h"
 #include "Terminator.h"
-#include "CTerminator.c"
+#include "CTerminator.cpp"
 #include "Icons.h"
 #include "Logger.h"
 #include "MainWindow.h"
