@@ -10,9 +10,8 @@ public slots:
     void timerFunc();
 
 public:
-    QCoreApplication* a;
     int seconds;
 
-    Terminator(QCoreApplication* a, int _seconds);
+    Terminator(int _seconds);
     void terminate();
 };
