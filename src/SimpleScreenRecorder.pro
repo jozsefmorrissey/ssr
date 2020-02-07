@@ -45,6 +45,7 @@ SOURCES += \
 	common/Dialogs.cpp \
 	common/Logger.cpp \
 	common/Terminator.cpp \
+	common/CTerminator.c \
 	GUI/AudioPreviewer.cpp \
 	GUI/DialogGLInject.cpp \
 	GUI/ElidedLabel.cpp \

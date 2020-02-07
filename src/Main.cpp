@@ -24,6 +24,7 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 #include "HotkeyListener.h"
 #include "CommandSettings.h"
 #include "Terminator.h"
+#include "CTerminator.c"
 #include "Icons.h"
 #include "Logger.h"
 #include "MainWindow.h"
@@ -169,7 +170,8 @@ int main(int argc, char* argv[]) {
 			} else if (option == "--output_profile") {
 				CommandSettings::SetOutputProfile(value);
 			} else if (option == "--termination_timer") {
-				Terminator t(20);
+				//Terminator t(20);
+				CTerminator t(20);
 			} else if (option == "--record_on_start") {
 				CommandSettings::SetRecordOnStart(true);
 			} else {
