@@ -73,7 +73,7 @@ unsigned int ProfileBox::FindProfile(const QString& name) {
 			return i + 1;
 		}
 	}
-	std::cout << "Not Found: " << m_profiles
+	std::cout << "Not Found\n";
 	return 0;
 }
 
