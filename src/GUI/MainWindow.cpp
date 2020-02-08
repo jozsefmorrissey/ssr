@@ -137,6 +137,7 @@ void MainWindow::LoadSettings() {
 
 	m_page_welcome->LoadSettings(&settings);
 	m_page_input->LoadSettings(&settings);
+	m_page_input->LoadProfileSettings(&settings);
 	m_page_output->LoadSettings(&settings);
 	m_page_record->LoadSettings(&settings);
 
