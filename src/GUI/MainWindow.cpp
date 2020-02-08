@@ -131,11 +131,11 @@ MainWindow::~MainWindow() {
 
 void MainWindow::LoadSettings() {
 
+	CommandSettings::initializeSettings(&settings);
+
 	QSettings settings(GetApplicationUserDir() + "/settings.conf", QSettings::IniFormat);
 
 	SetNVidiaDisableFlipping(StringToEnum(settings.value("global/nvidia_disable_flipping", QString()).toString(), NVIDIA_DISABLE_FLIPPING_ASK));
-
-	CommandSettings::initializeSettings(&settings);
 
 	m_page_welcome->LoadSettings(&settings);
 	m_page_input->LoadSettings(&settings);

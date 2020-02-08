@@ -39,7 +39,7 @@ void PrintOptionHelp() {
 				"Usage: simplescreenrecorder [OPTIONS]\n"
 				"\n"
 				"Options:\n"
-				"  --audio_profile[=NAME]     Use this audio profile.\n"
+				"  --input_profile[=NAME]     Use this input profile.\n"
 				"  --help                     Show this help message.\n"
 				"  --logfile                  Write log to ~/.ssr/log-DATE_TIME.txt instead of stdout.\n"
 				"  --no-systray               Don't show the system tray icon.\n"
@@ -53,7 +53,7 @@ void PrintOptionHelp() {
 				"  --termination_timer[=SEC]  Stop recording in indicated seconds.\n"
 				"  --start-hidden             Start the application in hidden form.\n"
 				"  --version                  Show version information.\n"
-				"  --video_profile[=NAME]     Use this video profile.\n"
+				"  --output_profile[=NAME]     Use this output profile.\n"
 	);
 }
 
