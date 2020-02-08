@@ -20,6 +20,8 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 #include "MainWindow.h"
 
 #include "Main.h"
+#include "CommandSettings.h"
+#include "Terminator.cpp"
 #include "Icons.h"
 #include "Dialogs.h"
 #include "EnumStrings.h"
@@ -65,12 +67,6 @@ MainWindow::MainWindow()
 
 	LoadSettings();
 
-	if(m_page_welcome->GetSkipPage()) {
-		m_stacked_layout->setCurrentWidget(m_page_input);
-	} else {
-		m_stacked_layout->setCurrentWidget(m_page_welcome);
-	}
-
 	// warning for glitch with proprietary NVIDIA drivers
 	if(GetNVidiaDisableFlipping() == NVIDIA_DISABLE_FLIPPING_ASK || GetNVidiaDisableFlipping() == NVIDIA_DISABLE_FLIPPING_YES) {
 		if(NVidiaGetFlipping()) {
@@ -114,6 +110,19 @@ MainWindow::MainWindow()
 		show();
 	m_page_record->UpdateShowHide();
 
+	if(m_page_welcome->GetSkipPage()) {
+		m_stacked_layout->setCurrentWidget(m_page_input);
+	} else if (CommandSettings::ShouldRecordOnStart()) {
+		m_stacked_layout->setCurrentWidget(m_page_record);
+		m_page_record->StartPage();
+		m_page_record->StartOutput();
+	} else {
+		m_stacked_layout->setCurrentWidget(m_page_welcome);
+	}
+
+	if (CommandSettings::GetTerminationTimer() > 0) {
+		Terminator(CommandSettings::GetTerminationTimer(), m_page_record);
+	}
 }
 
 MainWindow::~MainWindow() {
@@ -125,6 +134,8 @@ void MainWindow::LoadSettings() {
 	QSettings settings(GetApplicationUserDir() + "/settings.conf", QSettings::IniFormat);
 
 	SetNVidiaDisableFlipping(StringToEnum(settings.value("global/nvidia_disable_flipping", QString()).toString(), NVIDIA_DISABLE_FLIPPING_ASK));
+
+	CommandSettings::initializeSettings(&settings);
 
 	m_page_welcome->LoadSettings(&settings);
 	m_page_input->LoadSettings(&settings);
