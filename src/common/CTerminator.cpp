@@ -13,9 +13,10 @@ class CTerminator {
         PageRecord * page_record;
 
         static void * Terminate(void * cterminator) {
-            std::cout << "This program will exit in " << ((CTerminator*)cterminator)->seconds << " seconds\n";
-            sleep(((CTerminator*)cterminator->seconds));
-            page_record.StopPage();
+            CTerminator * cterm = ((CTerminator*)cterminator);
+            std::cout << "This program will exit in " << cterm->seconds << " seconds\n";
+            sleep(cterm->seconds);
+            cterm->page_record.StopPage();
             QCoreApplication::exit(0);
         }
 
