@@ -67,9 +67,13 @@ QString ProfileBox::GetProfileName() {
 unsigned int ProfileBox::FindProfile(const QString& name) {
 	std::cout << "Profiles Length: " << m_profiles.size() << "\n";
 	for(unsigned int i = 0; i < m_profiles.size(); ++i) {
-		if(m_profiles[i].m_name == name)
+		std::cout << "Name: " << m_profiles[i].m_name << "\n";
+		if(m_profiles[i].m_name == name) {
+			std:cout << "found! \n";
 			return i + 1;
+		}
 	}
+	std::cout << "Not Found: " << m_profiles
 	return 0;
 }
 
