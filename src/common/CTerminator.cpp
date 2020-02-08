@@ -12,7 +12,9 @@ class CTerminator {
       struct TermData {
         int seconds;
         PageRecord * page_record;
-      } termData;
+      };
+
+      TermData * termData;
 
         static void * Terminate(void * _termData) {
             TermData * termData = ((TermData*)_termData);
@@ -20,12 +22,14 @@ class CTerminator {
             std::cout << "This program will exit in " << termData->seconds << " seconds\n";
             sleep(termData->seconds);
             termData->page_record->StopPage(true);
+            free(termData);
             QCoreApplication::exit(0);
         }
 
 
     public:
         CTerminator(int _seconds, PageRecord * _page_record) {
+            termData = malloc(sizeof(TermData));
             termData.seconds = 20;
             termData.page_record = _page_record;
             pthread_t pth;
