@@ -9,25 +9,29 @@
 class CTerminator {
 
     private:
+      struct TermData {
         int seconds;
         PageRecord * page_record;
+      } TermData;
 
-        static void * Terminate(void * cterminator) {
-            CTerminator * cterm = ((CTerminator*)cterminator);
-            std::cout << "This program will exit in " << cterm->seconds << " seconds\n";
-            sleep(cterm->seconds);
-            cterm->page_record->StopPage(true);
+        TermData termData;
+
+        static void * Terminate(void * _termData) {
+            TermData * termData = ((CTerminator*)_termData);
+            std::cout << "This program will exit in " << termData->seconds << " seconds\n";
+            sleep(termData->seconds);
+            termData->page_record->StopPage(true);
             QCoreApplication::exit(0);
         }
 
 
     public:
         CTerminator(int _seconds, PageRecord * _page_record) {
-            seconds = 20;
-            page_record = _page_record;
+            termData.seconds = 20;
+            termData.page_record = _page_record;
             pthread_t pth;
             int i = 0;
 
-            pthread_create(&pth, NULL, Terminate, this);
+            pthread_create(&pth, NULL, Terminate, &termData);
         }
 };
