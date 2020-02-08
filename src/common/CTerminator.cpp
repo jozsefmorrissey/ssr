@@ -32,7 +32,7 @@ class CTerminator {
     public:
         CTerminator(int _seconds, PageRecord * _page_record) {
             termData = (TermData*)malloc(sizeof(TermData));
-            termData->seconds = 20;
+            termData->seconds = _seconds;
             termData->page_record = _page_record;
             pthread_t pth;
 
