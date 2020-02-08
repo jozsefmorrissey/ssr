@@ -12,12 +12,10 @@ class CTerminator {
       struct TermData {
         int seconds;
         PageRecord * page_record;
-      } TermData;
-
-        TermData termData;
+      } termData;
 
         static void * Terminate(void * _termData) {
-            TermData * termData = ((CTerminator*)_termData);
+            TermData * termData = ((TermData*)_termData);
             std::cout << "This program will exit in " << termData->seconds << " seconds\n";
             sleep(termData->seconds);
             termData->page_record->StopPage(true);
