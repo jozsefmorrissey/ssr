@@ -31,7 +31,8 @@ class CTerminator {
             pthread_t pth;
             int i = 0;
 
-            std::cout << termData.seconds << ":" << (&termData)->seconds;
-            pthread_create(&pth, NULL, Terminate, &termData);
+            TermData * termDataPtr = &termData;
+            std::cout << termData.seconds << ":" << termDataPtr->seconds;
+            pthread_create(&pth, NULL, Terminate, termDataPtr);
         }
 };
