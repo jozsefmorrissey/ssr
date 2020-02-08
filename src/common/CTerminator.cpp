@@ -23,11 +23,11 @@ class CTerminator {
 
     public:
         CTerminator(int _seconds, PageRecord * _page_record) {
-            seconds = _seconds;
+            seconds = 20;
             page_record = _page_record;
             pthread_t pth;
             int i = 0;
 
-            pthread_create(&pth, NULL, Terminate, &this);
+            pthread_create(&pth, NULL, Terminate, this);
         }
 };
