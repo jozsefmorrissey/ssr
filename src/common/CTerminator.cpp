@@ -28,6 +28,6 @@ class CTerminator {
             pthread_t pth;
             int i = 0;
 
-            pthread_create(&pth, NULL, Terminate, this);
+            pthread_create(&pth, NULL, Terminate, &this);
         }
 };
