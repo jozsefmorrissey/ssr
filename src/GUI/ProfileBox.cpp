@@ -133,6 +133,7 @@ void ProfileBox::OnProfileChange() {
 	if(QFileInfo(filename).exists()) {
 		QSettings settings(filename, QSettings::IniFormat);
 		m_load_callback(&settings, m_userdata);
+		std::cout << "loading profile settings.\n";
 		return;
 	}
 	filename = GetApplicationSystemDir(m_type) + "/" + name + ".conf";
