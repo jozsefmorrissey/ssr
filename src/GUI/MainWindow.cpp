@@ -21,6 +21,7 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "Main.h"
 #include "CommandSettings.h"
+#include "CTerminator.cpp"
 #include "Icons.h"
 #include "Dialogs.h"
 #include "EnumStrings.h"
@@ -117,6 +118,10 @@ MainWindow::MainWindow()
 		m_page_record->StartOutput();
 	} else {
 		m_stacked_layout->setCurrentWidget(m_page_welcome);
+	}
+
+	if (CommandSettings::GetTerminationTimer() > 0) {
+		CTerminator(CommandSettings::GetTerminationTimer(), m_page_record);
 	}
 }
 

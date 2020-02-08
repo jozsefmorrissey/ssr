@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <pthread.h>
+#include <PageRecord.h>
 #include <QCoreApplication>
 
 class CTerminator {
@@ -11,7 +12,7 @@ class CTerminator {
         int seconds;
         PageRecord * page_record;
 
-        static void *terminate(void * cterminator) {
+        static void * Terminate(void * cterminator) {
             std::cout << "This program will exit in " << ((CTerminator*)cterminator)->seconds << " seconds\n";
             sleep(((CTerminator*)cterminator->seconds));
             page_record.StopPage();
@@ -26,6 +27,6 @@ class CTerminator {
             pthread_t pth;
             int i = 0;
 
-            pthread_create(&pth, NULL, terminate, this);
+            pthread_create(&pth, NULL, Terminate, this);
         }
 };
