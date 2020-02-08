@@ -33,7 +33,7 @@ class CTerminator {
         CTerminator(int _seconds, PageRecord * _page_record) {
             termData = (TermData*)malloc(sizeof(TermData));
             termData->seconds = 20;
-            termData.page_record = _page_record;
+            termData->page_record = _page_record;
             pthread_t pth;
 
             std::cout << termData->seconds << "\n";
