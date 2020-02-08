@@ -65,6 +65,7 @@ QString ProfileBox::GetProfileName() {
 }
 
 unsigned int ProfileBox::FindProfile(const QString& name) {
+	std::cout << "Profiles Length: " << m_profiles.size() << "\n";
 	for(unsigned int i = 0; i < m_profiles.size(); ++i) {
 		if(m_profiles[i].m_name == name)
 			return i + 1;
@@ -73,7 +74,7 @@ unsigned int ProfileBox::FindProfile(const QString& name) {
 }
 
 void ProfileBox::LoadProfiles() {
-
+	std::cout << "Loading Profiles\n";
 	// get all profiles
 	std::vector<Profile> profiles;
 	LoadProfilesFromDir(&profiles, GetApplicationSystemDir(m_type), false);

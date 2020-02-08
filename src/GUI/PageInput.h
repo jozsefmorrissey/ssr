@@ -184,11 +184,11 @@ public:
 
 	void LoadSettings(QSettings* settings);
 	void SaveSettings(QSettings* settings);
-	void LoadProfileSettings(QSettings* settings);
 
 private:
 	static void LoadProfileSettingsCallback(QSettings* settings, void* userdata);
 	static void SaveProfileSettingsCallback(QSettings* settings, void* userdata);
+	void LoadProfileSettings(QSettings* settings);
 	void SaveProfileSettings(QSettings* settings);
 
 public:

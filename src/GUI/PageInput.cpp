@@ -535,6 +535,7 @@ PageInput::PageInput(MainWindow* main_window)
 }
 
 void PageInput::LoadSettings(QSettings* settings) {
+	std::cout << "load input settings\n";
 	SetProfile(m_profile_box->FindProfile(settings->value("input/profile", QString()).toString()));
 	LoadProfileSettings(settings);
 }
