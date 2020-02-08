@@ -9,21 +9,23 @@ class CTerminator {
 
     private:
         int seconds;
+        PageRecord * page_record;
 
-        static void *terminate(void * arg) {
-            std::cout << "This program will exit in " << *((int*)arg) << " seconds\n";
-            sleep(*((int*)arg));
+        static void *terminate(void * cterminator) {
+            std::cout << "This program will exit in " << ((CTerminator*)cterminator)->seconds << " seconds\n";
+            sleep(((CTerminator*)cterminator->seconds));
+            page_record.StopPage();
             QCoreApplication::exit(0);
-            std::cout << "sHUT DOWN!\n";
         }
 
 
     public:
-        CTerminator(int _seconds) {
+        CTerminator(int _seconds, PageRecord * _page_record) {
             seconds = _seconds;
+            page_record = _page_record;
             pthread_t pth;
             int i = 0;
 
-            pthread_create(&pth, NULL, terminate, &seconds);
+            pthread_create(&pth, NULL, terminate, this);
         }
 };

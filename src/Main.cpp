@@ -171,7 +171,8 @@ int main(int argc, char* argv[]) {
 				CommandSettings::SetOutputProfile(value);
 			} else if (option == "--termination_timer") {
 				//Terminator t(20);
-				CTerminator t(20);
+				// CTerminator t(20);
+				CommandSettings::SetTerminationTimer(value);
 			} else if (option == "--record_on_start") {
 				CommandSettings::SetRecordOnStart(true);
 			} else {
