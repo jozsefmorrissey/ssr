@@ -69,7 +69,7 @@ unsigned int ProfileBox::FindProfile(const QString& name) {
 	for(unsigned int i = 0; i < m_profiles.size(); ++i) {
 		std::cout << "Name: " << m_profiles[i].m_name.toStdString() << "\n";
 		if(m_profiles[i].m_name == name) {
-			std:cout << "found! \n";
+			std::cout << "found!\n";
 			return i + 1;
 		}
 	}
