@@ -153,7 +153,7 @@ QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& t
 			settings = new QSettings();
 		}
 	}
-	std::cout << "Name: " << name << "\n";
+	std::cout << "Name: " << name.toStdString() << "\n";
 	settings->setValue("input/profile", name);
 	return settings;
 }
