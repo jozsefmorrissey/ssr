@@ -143,11 +143,13 @@ QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& t
 	QString filename = GetApplicationUserDir(type) + "/" + name + ".conf";
 	QSettings * settings;
 	if(QFileInfo(filename).exists()) {
+		std::cout << "Local: " << filename << "\n";
 		settings = new QSettings(filename, QSettings::IniFormat);
 	}
 	if(settings == NULL) {
 		filename = GetApplicationSystemDir(type) + "/" + name + ".conf";
 		if (QFileInfo(filename).exists()) {
+			std::cout << "Global: " << filename << "\n";
 		 	settings = new QSettings(filename, QSettings::IniFormat);
 		} else {
 			std::cout << "no file found";
