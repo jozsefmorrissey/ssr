@@ -131,8 +131,8 @@ void ProfileBox::OnProfileChange() {
 		return;
 
 	QSettings * settings = GetProfileSettings(name);
-	if (settings != NULL)
-		m_load_callback(&settings, m_userdata);
+	if (settings != NULL) {
+		m_load_callback(settings, m_userdata);
 		return;
 	}
 
