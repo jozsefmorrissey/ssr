@@ -49,7 +49,7 @@ public:
 	ProfileBox(const QString& title, QWidget* parent, const QString& type, LoadCallback load_callback, SaveCallback save_callback, void* userdata);
 	void OnProfileChange();
 
-	QSettings * GetProfileSettings(const QString& name);
+	static QSettings * GetProfileSettings(const QString& name, const QString& type);
 
 	QString GetProfileName();
 	unsigned int FindProfile(const QString& name);
