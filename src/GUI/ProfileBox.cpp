@@ -130,7 +130,7 @@ void ProfileBox::OnProfileChange() {
 	if(name.isEmpty())
 		return;
 
-	QSettings * settings = GetProfileSettings(name, m_type);
+	QSettings * settings = GetProfileSettings(name);
 	if (settings != NULL)
 		m_load_callback(&settings, m_userdata);
 		return;
@@ -140,11 +140,11 @@ void ProfileBox::OnProfileChange() {
 }
 
 QSettings * ProfileBox::GetProfileSettings(const QString& name) {
-	QString filename = GetApplicationUserDir(type) + "/" + name + ".conf";
+	QString filename = GetApplicationUserDir(m_type) + "/" + name + ".conf";
 	if(QFileInfo(filename).exists()) {
 		return settings(filename, QSettings::IniFormat);
 	}
-	filename = GetApplicationSystemDir(type) + "/" + name + ".conf";
+	filename = GetApplicationSystemDir(m_type) + "/" + name + ".conf";
 	if(QFileInfo(filename).exists()) {
 		return settings(filename, QSettings::IniFormat);
 	}
