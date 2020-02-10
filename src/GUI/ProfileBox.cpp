@@ -141,14 +141,20 @@ void ProfileBox::OnProfileChange() {
 
 QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& type) {
 	QString filename = GetApplicationUserDir(type) + "/" + name + ".conf";
+	QSettings * settings;
 	if(QFileInfo(filename).exists()) {
-		return new QSettings(filename, QSettings::IniFormat);
+		settings = new QSettings(filename, QSettings::IniFormat);
 	}
-	filename = GetApplicationSystemDir(type) + "/" + name + ".conf";
-	if(QFileInfo(filename).exists()) {
-		return new QSettings(filename, QSettings::IniFormat);
+	if(settings == NULL) {
+		filename = GetApplicationSystemDir(type) + "/" + name + ".conf";
+		if (QFileInfo(filename).exists()) {
+		 	settings = new QSettings(filename, QSettings::IniFormat);
+		} else {
+			settings = new QSettings();
+		}
 	}
-	return new QSettings();
+	settings->setValue("input/profile", name);
+	return settings;
 }
 
 void ProfileBox::OnProfileSave() {
