@@ -138,9 +138,15 @@ void MainWindow::LoadSettings() {
 	m_page_welcome->LoadSettings(&settings);
 	m_page_input->LoadSettings(&settings);
 	// ProfileBox * pb = new ProfileBox(NULL, NULL, "input-profiles", NULL, NULL, this);
-	m_page_input->LoadSettings(ProfileBox::GetProfileSettings(CommandSettings::GetInputProfile(), "input-profile"));
+
+	QString inputProfile = CommandSettings::GetInputProfile();
+	cout << "InputProfile: " << inputProfile.toStdString();
+	m_page_input->LoadSettings(ProfileBox::GetProfileSettings(inputProfile, "input-profile"));
 	m_page_output->LoadSettings(&settings);
-	m_page_output->LoadSettings(ProfileBox::GetProfileSettings(CommandSettings::GetOutputProfile(), "output-profile"));
+
+	QString outputProfile = CommandSettings::GetOutputProfile();
+	cout << "OutputProfile: " << outputProfile.toStdString();
+	m_page_output->LoadSettings(ProfileBox::GetProfileSettings(outputProfile, "output-profile"));
 	m_page_record->LoadSettings(&settings);
 
 }
