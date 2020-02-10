@@ -148,7 +148,7 @@ QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& t
 	if(QFileInfo(filename).exists()) {
 		return new QSettings(filename, QSettings::IniFormat);
 	}
-	return new QSettings(QSettings::IniFormat);
+	return new QSettings();
 }
 
 void ProfileBox::OnProfileSave() {
