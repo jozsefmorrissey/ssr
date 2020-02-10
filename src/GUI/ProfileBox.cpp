@@ -130,7 +130,7 @@ void ProfileBox::OnProfileChange() {
 	if(name.isEmpty())
 		return;
 
-	QSettings * settings = GetProfileSettings(name);
+	QSettings * settings = GetProfileSettings(name, m_type);
 	if (settings != NULL) {
 		m_load_callback(settings, m_userdata);
 		return;
@@ -139,12 +139,12 @@ void ProfileBox::OnProfileChange() {
 	Logger::LogError("[ProfileBox::OnProfileChange] " + tr("Error: Can't load profile!"));
 }
 
-QSettings * ProfileBox::GetProfileSettings(const QString& name) {
-	QString filename = GetApplicationUserDir(m_type) + "/" + name + ".conf";
+QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& type) {
+	QString filename = GetApplicationUserDir(type) + "/" + name + ".conf";
 	if(QFileInfo(filename).exists()) {
 		return new QSettings(filename, QSettings::IniFormat);
 	}
-	filename = GetApplicationSystemDir(m_type) + "/" + name + ".conf";
+	filename = GetApplicationSystemDir(type) + "/" + name + ".conf";
 	if(QFileInfo(filename).exists()) {
 		return new QSettings(filename, QSettings::IniFormat);
 	}
