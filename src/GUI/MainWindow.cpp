@@ -138,9 +138,9 @@ void MainWindow::LoadSettings() {
 	m_page_welcome->LoadSettings(&settings);
 	m_page_input->LoadSettings(&settings);
 	// ProfileBox * pb = new ProfileBox(NULL, NULL, "input-profiles", NULL, NULL, this);
-	m_page_input->LoadSettings(ProfileBox::GetProfileSettings(CommandSettings::GetInputProfile()));
+	m_page_input->LoadSettings(ProfileBox::GetProfileSettings(CommandSettings::GetInputProfile()), "input-profile");
 	m_page_output->LoadSettings(&settings);
-	m_page_output->LoadSettings(ProfileBox::GetProfileSettings(CommandSettings::GetOutputProfile()));
+	m_page_output->LoadSettings(ProfileBox::GetProfileSettings(CommandSettings::GetOutputProfile()), "output-profile");
 	m_page_record->LoadSettings(&settings);
 
 }
