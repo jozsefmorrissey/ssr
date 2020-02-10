@@ -47,7 +47,6 @@ private:
 
 public:
 	ProfileBox(const QString& title, QWidget* parent, const QString& type, LoadCallback load_callback, SaveCallback save_callback, void* userdata);
-	void OnProfileChange();
 
 	static QSettings * GetProfileSettings(const QString& name, const QString& type);
 
@@ -60,6 +59,7 @@ private:
 	void UpdateProfileFields();
 
 private slots:
+	void OnProfileChange();
 	void OnProfileSave();
 	void OnProfileNew();
 	void OnProfileDelete();
