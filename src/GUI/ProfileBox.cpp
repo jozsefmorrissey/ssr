@@ -151,11 +151,11 @@ QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& t
 		 	settings = new QSettings(filename, QSettings::IniFormat);
 		} else {
 			std::cout << "no file found";
-			settings = new QSettings();
+			settings = new QSettings(GetApplicationUserDir() + "/settings.conf", QSettings::IniFormat);
 		}
 	}
 	std::cout << "Name: " << name.toStdString() << "\n";
-	std::cout << "Settings is null: " << settings == NULL << "\n";
+	std::cout << "Settings is null: " << (settings == NULL) << "\n";
 	settings->setValue("input/profile", name);
 	return settings;
 }
