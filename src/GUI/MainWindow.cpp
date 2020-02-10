@@ -139,7 +139,7 @@ void MainWindow::LoadSettings() {
 	m_page_input->LoadSettings(&settings);
 	m_page_input->LoadSettings(ProfileBox::GetProfileSettings(CommandSettings::GetInputProfile(), "input-profiles"));
 	m_page_output->LoadSettings(&settings);
-	m_page_output->LoadSettings(ProfileBox::GetProfileSettings(CommandSettings::GetOutputProfile()), "output-profiles");
+	m_page_output->LoadSettings(ProfileBox::GetProfileSettings(CommandSettings::GetOutputProfile(), "output-profiles"));
 	m_page_record->LoadSettings(&settings);
 
 }
