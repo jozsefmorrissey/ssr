@@ -150,10 +150,12 @@ QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& t
 		if (QFileInfo(filename).exists()) {
 		 	settings = new QSettings(filename, QSettings::IniFormat);
 		} else {
+			std::cout << "no file found";
 			settings = new QSettings();
 		}
 	}
 	std::cout << "Name: " << name.toStdString() << "\n";
+	std::cout << "Settings is null: " << settings == NULL << "\n";
 	settings->setValue("input/profile", name);
 	return settings;
 }
