@@ -51,7 +51,7 @@ public:
 
 	QSettings * GetProfileSettings(const QString& name);
 
-	static QString GetProfileName();
+	QString GetProfileName();
 	unsigned int FindProfile(const QString& name);
 
 private:
