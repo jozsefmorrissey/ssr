@@ -130,9 +130,9 @@ void ProfileBox::OnProfileChange() {
 	if(name.isEmpty())
 		return;
 
-	QSettings * settings = GetProfileSettings(const QString& name, const QString& type);
+	QSettings * settings = GetProfileSettings(name, type);
 	if (settings != NULL)
-		QSettings settings(filename, QSettings::IniFormat);
+		m_load_callback(&settings, m_userdata);
 		return;
 	}
 
