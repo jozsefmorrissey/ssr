@@ -130,7 +130,7 @@ void ProfileBox::OnProfileChange() {
 	if(name.isEmpty())
 		return;
 
-	QSettings * settings = GetProfileSettings(name, type);
+	QSettings * settings = GetProfileSettings(name, m_type);
 	if (settings != NULL)
 		m_load_callback(&settings, m_userdata);
 		return;
