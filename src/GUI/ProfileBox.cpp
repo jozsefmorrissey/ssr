@@ -140,7 +140,7 @@ void ProfileBox::OnProfileChange() {
 }
 
 QSettings * ProfileBox::GetProfileSettings(const QString& name) {
-	QString filename = GetApplicationUserDir(m_type) + "/" + name + ".conf";
+	QString filename = GetApplicationUserDir(m_type)  + "/" + name + ".conf";
 	if(QFileInfo(filename).exists()) {
 		return settings(filename, QSettings::IniFormat);
 	}
