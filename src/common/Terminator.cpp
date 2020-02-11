@@ -4,12 +4,12 @@
 // #include <iostream>
 #include <Terminator.h>
 
-Terminator(int _seconds, PageRecord * _page_record) {
+Terminator::Terminator(int _seconds, PageRecord * _page_record) {
   termData = (TermData*)malloc(sizeof(TermData));
   termData->seconds = _seconds;
   termData->page_record = _page_record;
   pthread_t pth;
-  
+
   std::cout << termData->seconds << "\n";
   pthread_create(&pth, NULL, Terminate, termData);
 }
