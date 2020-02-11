@@ -142,14 +142,16 @@ void ProfileBox::OnProfileChange() {
 QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& type) {
 	QString filename = GetApplicationUserDir(type) + "/" + name + ".conf";
 	QSettings * settings = NULL;
+	std::cout << "Local Check: " << filename.toStdString() << "\n";
 	if(QFileInfo(filename).exists()) {
-		std::cout << "Local: " << filename.toStdString() << "\n";
+		std::cout << "Local!\n";
 		settings = new QSettings(filename, QSettings::IniFormat);
 	}
 	if(settings == NULL) {
 		filename = GetApplicationSystemDir(type) + "/" + name + ".conf";
+		std::cout << "Global Check: " << filename.toStdString() << "\n";
 		if (QFileInfo(filename).exists()) {
-			std::cout << "Global: " << filename.toStdString() << "\n";
+			std::cout << "Global\n";
 		 	settings = new QSettings(filename, QSettings::IniFormat);
 		} else {
 			std::cout << "no file found";
