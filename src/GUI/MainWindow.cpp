@@ -21,7 +21,7 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "Main.h"
 #include "CommandSettings.h"
-#include "Terminator.cpp"
+#include "Terminator.h"
 #include "Icons.h"
 #include "Dialogs.h"
 #include "EnumStrings.h"
