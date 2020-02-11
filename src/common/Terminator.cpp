@@ -20,7 +20,6 @@ class Terminator {
       static void * Terminate(void * _termData) {
           TermData * termData = ((TermData*)_termData);
           std::cout << "This program will exit in " << termData->seconds << " seconds\n";
-          std::cout << "This program will exit in " << termData->seconds << " seconds\n";
           sleep(termData->seconds);
           termData->page_record->StopPage(true);
           free(termData);

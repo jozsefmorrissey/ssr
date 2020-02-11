@@ -236,7 +236,7 @@ PageInput::PageInput(MainWindow* main_window)
 	scrollarea->setWidget(scrollarea_contents);
 	{
 		m_profile_box = new ProfileBox(tr("Input profile"), scrollarea_contents, "input-profiles", &LoadProfileSettingsCallback, &SaveProfileSettingsCallback, this);
-		
+
 		QGroupBox *groupbox_video = new QGroupBox(tr("Video input"), scrollarea_contents);
 		{
 			m_buttongroup_video_area = new QButtonGroup(groupbox_video);
@@ -535,7 +535,6 @@ PageInput::PageInput(MainWindow* main_window)
 }
 
 void PageInput::LoadSettings(QSettings* settings) {
-	std::cout << "load input settings\n";
 	SetProfile(m_profile_box->FindProfile(settings->value("input/profile", QString()).toString()));
 	LoadProfileSettings(settings);
 }

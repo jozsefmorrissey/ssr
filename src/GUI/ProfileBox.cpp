@@ -65,20 +65,14 @@ QString ProfileBox::GetProfileName() {
 }
 
 unsigned int ProfileBox::FindProfile(const QString& name) {
-	std::cout << "(" << name.toStdString() << ") Profiles Length: " << m_profiles.size() << "\n";
 	for(unsigned int i = 0; i < m_profiles.size(); ++i) {
-		std::cout << "Name: " << m_profiles[i].m_name.toStdString() << "\n";
-		if(m_profiles[i].m_name == name) {
-			std::cout << "found!\n";
+		if(m_profiles[i].m_name == name)
 			return i + 1;
-		}
 	}
-	std::cout << "Not Found\n";
 	return 0;
 }
 
 void ProfileBox::LoadProfiles() {
-	std::cout << "Loading Profiles\n";
 	// get all profiles
 	std::vector<Profile> profiles;
 	LoadProfilesFromDir(&profiles, GetApplicationSystemDir(m_type), false);
@@ -131,35 +125,25 @@ void ProfileBox::OnProfileChange() {
 		return;
 
 	QSettings * settings = GetProfileSettings(name, m_type);
-	if (settings != NULL) {
-		m_load_callback(settings, m_userdata);
-		return;
-	}
-
-	Logger::LogError("[ProfileBox::OnProfileChange] " + tr("Error: Can't load profile!"));
+	m_load_callback(settings, m_userdata);
+	return;
 }
 
 QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& type) {
 	QString filename = GetApplicationUserDir(type) + "/" + name + ".conf";
 	QSettings * settings = NULL;
-	std::cout << "Local Check: " << filename.toStdString() << "\n";
 	if(QFileInfo(filename).exists()) {
-		std::cout << "Local!\n";
 		settings = new QSettings(filename, QSettings::IniFormat);
 	}
 	if(settings == NULL) {
 		filename = GetApplicationSystemDir(type) + "/" + name + ".conf";
-		std::cout << "Global Check: " << filename.toStdString() << "\n";
 		if (QFileInfo(filename).exists()) {
-			std::cout << "Global\n";
 		 	settings = new QSettings(filename, QSettings::IniFormat);
 		} else {
-			std::cout << "no file found";
 			settings = new QSettings(GetApplicationUserDir() + "/settings.conf", QSettings::IniFormat);
+			Logger::LogError("[ProfileBox::OnProfileChange] " + tr("Error: Can't load profile!"));
 		}
 	}
-	std::cout << "Name: " << name.toStdString() << "\n";
-	std::cout << "Settings is null: " << (settings == NULL) << "\n";
 	settings->setValue(type.section("-", 0, 0) + QString::fromStdString("/profile"), name);
 	return settings;
 }
