@@ -141,12 +141,12 @@ void MainWindow::LoadSettings() {
 
 	QString inputProfile = CommandSettings::GetInputProfile();
 	std::cout << "InputProfile: " << inputProfile.toStdString() << "\n";
-	m_page_input->LoadSettings(ProfileBox::GetProfileSettings(inputProfile, "input-profile"));
+	m_page_input->LoadSettings(ProfileBox::GetProfileSettings(inputProfile, "input-profiles"));
 	m_page_output->LoadSettings(&settings);
 
 	QString outputProfile = CommandSettings::GetOutputProfile();
 	std::cout << "OutputProfile: " << outputProfile.toStdString() << "\n";
-	m_page_output->LoadSettings(ProfileBox::GetProfileSettings(outputProfile, "output-profile"));
+	m_page_output->LoadSettings(ProfileBox::GetProfileSettings(outputProfile, "output-profiles"));
 	m_page_record->LoadSettings(&settings);
 
 }
