@@ -1,4 +1,5 @@
-#pragma once
+#ifndef TERMINATOR
+#define TERMINATOR
 
 #include <QObject>
 #include <QTimer>
@@ -19,3 +20,5 @@ public:
 private:
     void terminate();
 };
+
+#endif // TERMINATOR
