@@ -145,11 +145,11 @@ void MainWindow::LoadSettings() {
 
 void MainWindow::LoadProfileSettings() {
 	QString inputProfile = CommandSettings::GetInputProfile();
-	QSettings inputSettings = ProfileBox::GetProfileSettings(inputProfile, "input-profiles");
+	QSettings * inputSettings = ProfileBox::GetProfileSettings(inputProfile, "input-profiles");
 	m_page_input->LoadSettings(inputSettings);
 
 	QString outputProfile = CommandSettings::GetOutputProfile();
-	QSettings outputSettings = ProfileBox::GetProfileSettings(outputProfile, "output-profiles");
+	QSettings * outputSettings = ProfileBox::GetProfileSettings(outputProfile, "output-profiles");
 	m_page_output->LoadSettings(outputSettings);
 }
 
