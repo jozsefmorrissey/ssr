@@ -160,8 +160,7 @@ QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& t
 	}
 	std::cout << "Name: " << name.toStdString() << "\n";
 	std::cout << "Settings is null: " << (settings == NULL) << "\n";
-	std::string varName = type.replace(new QRegExp("(.*)-.*"), "$1").toStdString() + "/profile";
-	settings->setValue(QString::fromStdString(varName), name);
+	settings->setValue(type.chopped(type.indexOf("-")) + QString::fromStdString("/profile"), name);
 	return settings;
 }
 
