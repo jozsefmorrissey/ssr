@@ -52,15 +52,3 @@ void CommandSettings::SetTerminationTimer(QString _termination_timer) {
 void CommandSettings::SetRecordOnStart(bool _record_on_start) {
 	record_on_start = _record_on_start;
 }
-
-void CommandSettings::initializeSettings(QSettings* settings) {
-	initSetting(settings, "output/file", output_file);
-	initSetting(settings, "input/profile", input_profile);
-	initSetting(settings, "output/profile", output_profile);
-}
-
-void CommandSettings::initSetting(QSettings* settings, QString id, QString value) {
-		if (!value.isEmpty()) {
-			settings->setValue(id, value);
-		}
-}
