@@ -23,8 +23,6 @@ along with SimpleScreenRecorder.  If not, see <http://www.gnu.org/licenses/>.
 #include "CPUFeatures.h"
 #include "HotkeyListener.h"
 #include "CommandSettings.h"
-#include "Terminator.h"
-#include "CTerminator.cpp"
 #include "Icons.h"
 #include "Logger.h"
 #include "MainWindow.h"
@@ -34,7 +32,6 @@ QString g_option_statsfile = QString();
 bool g_option_syncdiagram = false;
 bool g_option_systray = true;
 bool g_option_start_hidden = false;
-QString g_option_output_file = NULL;
 bool g_option_benchmark = false;
 
 void PrintOptionHelp() {
@@ -42,7 +39,7 @@ void PrintOptionHelp() {
 				"Usage: simplescreenrecorder [OPTIONS]\n"
 				"\n"
 				"Options:\n"
-				"  --audio_profile[=NAME]     Use this audio profile.\n"
+				"  --input_profile[=NAME]     Use this input profile.\n"
 				"  --help                     Show this help message.\n"
 				"  --logfile                  Write log to ~/.ssr/log-DATE_TIME.txt instead of stdout.\n"
 				"  --no-systray               Don't show the system tray icon.\n"
@@ -56,7 +53,7 @@ void PrintOptionHelp() {
 				"  --termination_timer[=SEC]  Stop recording in indicated seconds.\n"
 				"  --start-hidden             Start the application in hidden form.\n"
 				"  --version                  Show version information.\n"
-				"  --video_profile[=NAME]     Use this video profile.\n"
+				"  --output_profile[=NAME]     Use this output profile.\n"
 	);
 }
 
@@ -170,8 +167,6 @@ int main(int argc, char* argv[]) {
 			} else if (option == "--output_profile") {
 				CommandSettings::SetOutputProfile(value);
 			} else if (option == "--termination_timer") {
-				//Terminator t(20);
-				// CTerminator t(20);
 				CommandSettings::SetTerminationTimer(value);
 			} else if (option == "--record_on_start") {
 				CommandSettings::SetRecordOnStart(true);
@@ -180,8 +175,6 @@ int main(int argc, char* argv[]) {
 				PrintOptionHelp();
 				return 1;
 			}
-
-
 
 #undef NOVALUE
 

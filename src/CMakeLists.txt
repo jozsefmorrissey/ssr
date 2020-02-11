@@ -78,7 +78,6 @@ set(sources
 	common/CommandSettings.h
 	common/CPUFeatures.cpp
 	common/CPUFeatures.h
-	common/CTerminator.cpp
 	common/Dialogs.cpp
 	common/Dialogs.h
 	common/EnumStrings.h

@@ -45,7 +45,6 @@ SOURCES += \
 	common/Dialogs.cpp \
 	common/Logger.cpp \
 	common/Terminator.cpp \
-	common/CTerminator.cpp \
 	GUI/AudioPreviewer.cpp \
 	GUI/DialogGLInject.cpp \
 	GUI/ElidedLabel.cpp \
@@ -123,3 +122,4 @@ HEADERS  += \
 
 RESOURCES += \
 	resources.qrc
+

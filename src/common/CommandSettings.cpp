@@ -60,7 +60,7 @@ void CommandSettings::initializeSettings(QSettings* settings) {
 }
 
 void CommandSettings::initSetting(QSettings* settings, QString id, QString value) {
-		if (settings->value(id).toString().isEmpty() && !value.isEmpty()) {
+		if (!value.isEmpty()) {
 			settings->setValue(id, value);
 		}
 }

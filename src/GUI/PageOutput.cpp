@@ -401,6 +401,7 @@ PageOutput::PageOutput(MainWindow* main_window)
 	OnUpdateContainerFields();
 	OnUpdateVideoCodecFields();
 	OnUpdateAudioCodecFields();
+
 }
 
 void PageOutput::LoadSettings(QSettings* settings) {
