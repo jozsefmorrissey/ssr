@@ -1,6 +1,6 @@
 #include <Terminator.h>
 
-Terminator::Terminator(int _seconds) {
+Terminator::Terminator(int _seconds, PageRecord * _page_record) {
     std::cout << "constructor\n";
     terminate();
 }
