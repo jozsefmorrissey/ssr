@@ -29,8 +29,6 @@ private:
 	static int termination_timer;
 	static bool record_on_start;
 
-	static void initSetting(QSettings* settings, QString id, QString value);
-
 public:
 	static QString GetOutputFile();
 	static QString GetInputProfile();
@@ -43,6 +41,4 @@ public:
 	static void SetOutputProfile(QString _output_profile);
 	static void SetTerminationTimer(QString _termination_timer);
 	static void SetRecordOnStart(bool _record_on_start);
-
-	static void initializeSettings(QSettings* settings);
 };
