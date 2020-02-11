@@ -136,19 +136,21 @@ void MainWindow::LoadSettings() {
 	SetNVidiaDisableFlipping(StringToEnum(settings.value("global/nvidia_disable_flipping", QString()).toString(), NVIDIA_DISABLE_FLIPPING_ASK));
 
 	m_page_welcome->LoadSettings(&settings);
-	m_page_input->LoadSettings(&settings);
-	// ProfileBox * pb = new ProfileBox(NULL, NULL, "input-profiles", NULL, NULL, this);
-
-	QString inputProfile = CommandSettings::GetInputProfile();
-	std::cout << "InputProfile: " << inputProfile.toStdString() << "\n";
-	m_page_input->LoadSettings(ProfileBox::GetProfileSettings(inputProfile, "input-profiles"));
-	m_page_output->LoadSettings(&settings);
-
-	QString outputProfile = CommandSettings::GetOutputProfile();
-	std::cout << "OutputProfile: " << outputProfile.toStdString() << "\n";
-	m_page_output->LoadSettings(ProfileBox::GetProfileSettings(outputProfile, "output-profiles"));
+	LoadProfileSettings();
+	//m_page_input->LoadSettings(&settings);
+	//m_page_output->LoadSettings(&settings);
 	m_page_record->LoadSettings(&settings);
 
+}
+
+void MainWindow::LoadProfileSettings() {
+	QString inputProfile = CommandSettings::GetInputProfile();
+	QSettings inputSettings = ProfileBox::GetProfileSettings(inputProfile, "input-profiles");
+	m_page_input->LoadSettings(inputSettings);
+
+	QString outputProfile = CommandSettings::GetOutputProfile();
+	QSettings outputSettings = ProfileBox::GetProfileSettings(outputProfile, "output-profiles");
+	m_page_output->LoadSettings(outputSettings);
 }
 
 void MainWindow::SaveSettings() {
