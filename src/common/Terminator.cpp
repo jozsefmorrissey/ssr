@@ -1,7 +1,3 @@
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <unistd.h>
-// #include <iostream>
 #include <Terminator.h>
 
 Terminator::Terminator(int _seconds, PageRecord * _page_record) {
