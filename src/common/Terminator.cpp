@@ -1,41 +1,28 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <iostream>
-#include <pthread.h>
-#include <PageRecord.h>
-#include <QCoreApplication>
+#include <Terminator.h>
 
-class Terminator {
+Terminator::Terminator(int _seconds) {
+    std::cout << "constructor\n";
+    terminate();
+}
 
-    private:
-      struct TermData {
-        int seconds;
-        int minutes;
-        PageRecord * page_record;
-      };
+int counter=0;
+void Terminator::terminate() {
+    if (counter == 0) {
+        std::cout << "terminate";
+        QThread t;
+        this->connect(&t, SIGNAL(finished()), this, SLOT(threadFunc()));
+        t.start();
+    }
+}
 
-      TermData * termData;
+void Terminator::threadFunc() {
+    std::cout << "threadFunc\n";
+    QTimer *timer = new QTimer(this);
+    timer->singleShot(3000, this, SLOT(timerFunc()));
+    timer->start(seconds * 1000);
+}
 
-      static void * Terminate(void * _termData) {
-          TermData * termData = ((TermData*)_termData);
-          std::cout << "This program will exit in " << termData->seconds << " seconds\n";
-          sleep(termData->seconds);
-          termData->page_record->StopPage(true);
-          free(termData);
-          QCoreApplication::exit(0);
-          return NULL;
-      }
-
-
-    public:
-        Terminator(int _seconds, PageRecord * _page_record) {
-            termData = (TermData*)malloc(sizeof(TermData));
-            termData->seconds = _seconds;
-            termData->page_record = _page_record;
-            pthread_t pth;
-
-            std::cout << termData->seconds << "\n";
-            pthread_create(&pth, NULL, Terminate, termData);
-      }
-};
+void Terminator::timerFunc() {
+    std::cout << "timerFunc\n";
+    QCoreApplication::exit(0);
+}
