@@ -1,7 +1,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QCoreApplication>
-#include <PageRecord>
+#include <PageRecord.h>
 #include <iostream>
 #include <QThread>
 
