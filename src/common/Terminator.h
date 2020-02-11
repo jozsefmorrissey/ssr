@@ -1,6 +1,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QCoreApplication>
+#include <PageRecord>
 #include <iostream>
 #include <QThread>
 
