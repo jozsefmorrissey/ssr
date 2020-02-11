@@ -160,7 +160,7 @@ QSettings * ProfileBox::GetProfileSettings(const QString& name, const QString& t
 	}
 	std::cout << "Name: " << name.toStdString() << "\n";
 	std::cout << "Settings is null: " << (settings == NULL) << "\n";
-	settings->setValue("input/profile", name);
+	// settings->setValue("input/profile", name);
 	return settings;
 }
 
