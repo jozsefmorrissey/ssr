@@ -29,7 +29,11 @@ Terminator::Terminator(int _seconds, PageRecord * _page_record) {
 
 void * Terminator::Terminate(void * _termData) {
     TermData * termData = ((TermData*)_termData);
+<<<<<<< HEAD
     Logger::LogInfo("This program will exit in " + termData->seconds + " seconds");
+=======
+    Logger::LogInfo(Logger::tr("This program will exit in %1 seconds").arg(termData->seconds));
+>>>>>>> 9a08fbabe672daadf70298d2191fab8843d12e59
 
     sleep(termData->seconds);
     termData->page_record->StopPage(true);
